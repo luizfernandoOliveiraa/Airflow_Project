@@ -1,0 +1,31 @@
+services:
+  db_origem:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: dborigem_teste2025
+      POSTGRES_PASSWORD: dborigem_teste2025
+      POSTGRES_DB: db_origem
+    volumes:
+      - ./dbdata/banvic:/var/lib/postgresql/data
+      - ./banvic.sql:/docker-entrypoint-initdb.d/banvic.sql
+    ports:
+      - 55432:5432
+    networks:
+      - airflow
+
+  db_datawarehouse:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: db_datawarehouse_teste2025
+      POSTGRES_PASSWORD: db_datawarehouse_teste2025
+      POSTGRES_DB: db_datawarehouse
+    volumes:
+      - ./dbdata/testeindicium:/var/lib/postgresql/data
+    ports:
+      - 55433:5432
+    networks:
+      - airflow
+
+networks:
+  airflow:
+    driver: bridge
