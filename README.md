@@ -194,3 +194,4 @@ astro dev stop
 4. Push para a branch (`git push origin feature/NovaFuncionalidade`)
 5. Abra um Pull Request
 
+Obs: Esse projeto foi desenvolvido em outro ambiente restrito, e adaptado para esse repositório, por isso temos poucos commits e sem desenvolvimento de testes.
